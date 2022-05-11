@@ -1,0 +1,26 @@
+<div class="container mt-1">
+    <h2>List of Employees</h2>
+    <table class="table"> 
+            <thead>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Gender</th>
+                <th>Action</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userList">
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.mobile}}</td>
+                    <td>{{user.gender}}</td>
+    
+                    <td>
+                        <button class="btn btn-info"  [routerLink]="['/update-user',user.id]" >Edit</button>
+                        <button class="btn btn-danger mx-3"  (click)="remove(user.id)">Remove</button>
+                    </td>
+                </tr>  
+            </tbody>      
+    </table>
+    <a [routerLink]="['/user']" class="btn btn-primary">Add New</a>
+</div>

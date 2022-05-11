@@ -1,0 +1,56 @@
+<div class="container">
+    <form [formGroup]="userform">
+        <div>
+            <label for="name"><b>Name</b></label><br>
+            <input type="text"  id="name" name="name" formControlName="name" placeholder="Enter name"><br>  
+        </div>
+       
+        <div>
+            <label for="email"><b>Email</b></label>
+            <div>
+                <input type="text"  id="email" name="email" formControlName="email" placeholder="email"><br>  
+            </div>
+        </div>
+
+        <div>
+            <label for="mobile"><b>Phone Number</b></label>
+            <div>
+                <input type="text"  id="mobile" name="mobile" formControlName="mobile" placeholder="Phone Number"><br>  
+            </div>
+        </div>
+
+        <div>
+        <label for="gender">Gender</label>
+            <select formControlName="gender">
+                <option value=""> --Select--</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+        </div>
+
+        <div>
+        <label for="type">User Type</label>
+            <div >
+                <input formControlName="type" type="radio" id="User" value="User">
+                <label for="User">User</label>
+            </div>
+            <div>
+                <input formControlName="type" type="radio" id="Admin" value="Admin">
+                <label for="Admin">Admin</label>
+            </div>
+        </div>
+       
+        <div class="mb-1">
+            <div class="btn-group" role="group">
+                <button class="btn btn-info" [routerLink]="['/user-list']">Back</button>
+                <button (click)="save()" [disabled]="userform.invalid" class="btn btn-primary" type="button">
+                    {{id==0 || id==null ?'Save':'Update'}}</button>
+                <!-- <button class="btn btn-secondary" (click)="resetValues()" type="button">Reset </button> -->
+            </div>
+        </div>
+
+        <!-- <div >
+            {{userform.value |json}}
+        </div>   -->
+    </form>
+</div>
